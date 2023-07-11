@@ -28,7 +28,7 @@ try:
 except ImportError:
     get_user_from_token = None
 
-SSL_VERIFY = asbool(config.get('ckanext.xloader.ssl_verify', True))
+SSL_VERIFY = False
 if not SSL_VERIFY:
     requests.packages.urllib3.disable_warnings()
 
