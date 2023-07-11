@@ -256,6 +256,7 @@ def _download_resource_data(resource, data, api_key, logger):
     # fetch the resource data
     logger.info('Fetching from: {0}'.format(url))
     tmp_file = get_tmp_file(url)
+    logger.info('Temp_file_address: {0}'.format(tmp_file))
     length = 0
     m = hashlib.md5()
     cl = None
