@@ -197,6 +197,12 @@ def xloader_data_into_datastore_(input, job_dict):
         loader.calculate_record_count(
             resource_id=resource['id'], logger=logger)
         set_datastore_active(data, resource, logger)
+        
+        job_dict['status'] = 'running_but_viewable'
+        callback_xloader_hook(result_url=input['result_url'],
+                              api_key=api_key,
+                              job_dict=job_dict)
+        
         logger.info('Finished loading with tabulator')
         update_resource(resource={'id': resource['id'], 'hash': resource['hash']},
                         patch_only=True)
